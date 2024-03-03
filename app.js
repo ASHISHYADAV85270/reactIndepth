@@ -1,3 +1,6 @@
+import React from "react";
+import ReactDOM from 'react-dom/client';
+
 //it is a core work of react-> header is a react javascript object
 const header = React.createElement(
   "h1",
