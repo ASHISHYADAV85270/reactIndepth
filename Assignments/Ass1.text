@@ -1,0 +1,44 @@
+● What is Emmet?
+    Autocomplition joo VS code mai hota hai
+
+
+● Difference between a Library and Framework?
+    Library mai sb kuch install nhi hota ... Framework almost have everything . 
+    React is a library and angular is a framework
+
+
+● What is CDN? Why do we use it?
+    Content Delievery Network -> Bhoot baar apna server user sai kaafi dur hota hai 
+    jiss bjh sai website slow ho jatii hai .. too paas kai server pai paas chle jatai hai
+    Advantage of CDN ->
+    1.Server Ka Load Time Km hojata hai
+    2.website ka Downtime Km hojata hai
+    3.website ki security bad jati hai.. CDN galat IP address ko ek dam catch krleta hai
+    4.User Experience acha hojata hai
+    5.CDN is cheaper
+
+
+● Why is React known as React?
+     It "reacts" quickly to changes without reloading the whole page.
+
+
+● What is crossorigin in script tag?
+    It provides a way to overcome the same-origin policy applied by web browsers
+
+
+● What is diference between React and ReactDOM?
+   Link-> https://clouddevs.com/react/and-reactdom
+
+
+● What is difference between react.development.js and react.production.js files via CDN? 
+    By default, React. js builds your project in development mode, which 
+    includes features like detailed error messages and debugging tools. 
+    However, when you're ready to deploy your application, it's important 
+    to build it in production mode to benefit from optimized performance and 
+    reduced bundle size.
+
+● What is async and defer? 
+    First Refer SS of async vs defer
+    async doest not follow a strict flow of script execution but defer does
+    
+    
