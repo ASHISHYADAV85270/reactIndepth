@@ -1,26 +1,38 @@
 import React from "react";
-import ReactDOM from 'react-dom/client';
+import ReactDOM from "react-dom/client";
 
-//it is a core work of react-> header is a react javascript object
-const header = React.createElement(
-  "h1",
-  { id: "heading", myprop: "krle jo bhi krna hai" },
-  "Hello Ashish! from React"
+//JSX(transpiled before it reaches the JS)
+//JSX-> React.createElement => ReactElement-JSobject =>  HTMLELEMENT(render)
+const jsxHeading = (
+  <h1 id="heading">
+    Welcome To JSX Ashish
+    <p>How are you</p>
+  </h1>
 );
+// console.log(jsxHeading); // it will also create React Element
 
-const parent = React.createElement("div", { id: "parent" }, [
-  React.createElement("div", { id: "child1" }, [
-    React.createElement("h1", {}, "I am h1 tag from child1"),
-    React.createElement("h2", {}, "I am h2 tag from child1"),
-  ]),
-  React.createElement("div", { id: "child2" }, [
-    React.createElement("h1", {}, "I am h1 tag from child2"),
-    React.createElement("h2", {}, "I am h2 tag from child2"),
-  ]),
-]);
+/**
+ * !React Functional Component
+ * ? It is a JavaScript function which returns a react Element / JSX
+ */
 
-// console.log(parent);
+const Title = () => {
+  return <p>I am Title</p>;
+};
 
-// it is made by ReactDOM
+// ! it is a funtion component -> when we are calling Title it is called Component composition
+const HeadingComponent = () => {
+  return (
+    <div className="container">
+      <Title />
+      <h2 className="heading" tabIndex={"34"}>
+        Hi I am HeadingComponent
+      </h2>
+    </div>
+  );
+};
+// console.log(HeadingComponent);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(parent); // to take header object -> and convert it into h1 tag and put inside the root
+// root.render(jsxHeading);
+root.render(<HeadingComponent />);
