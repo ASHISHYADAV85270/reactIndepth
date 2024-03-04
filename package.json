@@ -1,0 +1,32 @@
+{
+  "name": "ashish-react",
+  "version": "1.0.0",
+  "description": "I am learning react in depth",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ASHISHYADAV85270/reactIndepth.git"
+  },
+  "keywords": [
+    "nothing"
+  ],
+  "author": "ashish yadav",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ASHISHYADAV85270/reactIndepth/issues"
+  },
+  "homepage": "https://github.com/ASHISHYADAV85270/reactIndepth#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browserslist": [
+    "last 2  versions"
+  ]
+}

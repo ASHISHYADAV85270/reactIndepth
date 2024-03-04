@@ -1,0 +1,63 @@
+● What is `NPM`?
+    It is not node package manager . But it manages all the dependencies of our
+    project . 
+    Transitive dependencies-> parcel-> some child dependencies-> other child dependencies
+    mtlb ek kai andar ek
+● What is `Parcel/Webpack`? Why do we need it?
+    Module Bundler for Javascript
+    Some important features of the parcel
+    1.Dev build
+    2.Local Server
+    3.HMR-> Hot Module Replacement
+    4.File Watching Algorithm
+    5.Faster Builds because it uses parcel cache
+    6.Image Optimization
+    7.Code Splitting
+    8.Differenctial Bundling -> supports older browsers->use babel polyfill internally
+    9.Good Error Handling
+    10.Tree Shaking
+    11. Different production and development Builds
+            npx parcel build index.html => production build
+            npx parcel  index.html => development build
+
+● What is `.parcel-cache`?
+    It is a directory created by the Parcel bundler to cache compiled assets 
+    and speed up subsequent builds.
+
+●  What is `npx` ?
+
+●  What is difference between `dependencies` vs `devDependencies` ?
+    dependencies -> dependencies required in production as well
+    devDependencies-> devDependencies required only when development is Done
+
+●  What is Tree Shaking?
+    Jb bundling krte hai too kuch function aur part of code unused hota hai too uskoo remove krna 
+    hii tree shaking khlata hai .. joo ki parcel krta hai 
+
+●  What is Hot Module Replacement?
+    Jb hmm file changes save kree too using parcel cache dubara ek build create hoga aur hmme page
+    referesh krnai ki need nhi hoti 
+
+●  What is the difference between `package.json` and `package-lock.json` ?
+    package.json holds all the current version and dependencies used in the project
+    while package-lock.json holds the exact and stable version of the Module used 
+
+●  Why should I not modify `package-lock.json`?
+    Manually kbhi bhi issai update nhi krna chaiye.
+    It is automatically generated and managed by NPM. 
+
+●  What is `node_modules` ? Is it a good idea to push that on git?
+    Git pai boo chizai bhejtai hai joo reproduce nhi hosktii 
+
+●  What is the `dist` folder?
+    The dist folder (short for distribution) is a directory commonly 
+    used to store the output of the build process.
+
+
+● What is `browserlists`?
+  Joo joo browser support krengai apnii website koo unkii list 
+  iski value hmm package.json mai set krtai hai
+
+● ^ caret and ~ tilda
+  ^ is used when u want to update only minor version fixes 2.7.2-> 2.7.3
+  ~ is used when u want to update major version changes 2.7.2-> 3.0.0
