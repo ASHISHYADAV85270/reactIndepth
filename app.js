@@ -1,26 +1,58 @@
 import React from "react";
-import ReactDOM from 'react-dom/client';
+import ReactDOM from "react-dom/client";
 
-//it is a core work of react-> header is a react javascript object
-const header = React.createElement(
-  "h1",
-  { id: "heading", myprop: "krle jo bhi krna hai" },
-  "Hello Ashish! from React"
+// ! This is basic Jsx
+
+//JSX(transpiled before it reaches the JS)
+//JSX->babel convert it into-> React.createElement => ReactElement-JSobject =>  HTMLELEMENT(render)
+/*
+const jsxHeading = (
+  <h1 id="heading">
+    Welcome To JSX Ashish
+    <p>How are you</p>
+  </h1>
 );
+console.log(jsxHeading); // it will also create React Element
+ */
 
-const parent = React.createElement("div", { id: "parent" }, [
-  React.createElement("div", { id: "child1" }, [
-    React.createElement("h1", {}, "I am h1 tag from child1"),
-    React.createElement("h2", {}, "I am h2 tag from child1"),
-  ]),
-  React.createElement("div", { id: "child2" }, [
-    React.createElement("h1", {}, "I am h1 tag from child2"),
-    React.createElement("h2", {}, "I am h2 tag from child2"),
-  ]),
-]);
+// ! it will be inserted into JSX using {}
+const fullname = <span style={{ color: "red" }}>Ashish Yadav</span>;
 
-// console.log(parent);
+// ! it will be inserted into JSX using <FullName />
+const FullName = () => {
+  return <span style={{ color: "red" }}>Ashish Yadav</span>;
+};
 
-// it is made by ReactDOM
+// !React Functional Component
+// ? It is a JavaScript function which returns a react Element / JSX
+const Title = () => {
+  return <p>I am Title</p>;
+};
+
+const score = 90;
+// ! it is a funtion component
+// todo ### when we are calling Title it is called Component composition
+// ! we can inject any js inside currly braces { any js inside currly braces } inside JSX
+const HeadingComponent = () => {
+  return (
+    <div className="container">
+      <Title />
+      <h2 className="heading" tabIndex={"34"}>
+        Hi I am HeadingComponent and my Namaste React score is {score}
+        <br />
+        My fullname is {fullname}
+        <br />
+        My Full Name is <FullName />
+        <br />
+        My Full Name is <FullName></FullName>
+        <br />
+        My Full Name is {FullName()}
+      </h2>
+    </div>
+  );
+};
+// console.log(HeadingComponent);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(parent); // to take header object -> and convert it into h1 tag and put inside the root
+// root.render(jsxHeading);
+root.render(<HeadingComponent />);
