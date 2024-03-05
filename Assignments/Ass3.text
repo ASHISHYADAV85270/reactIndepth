@@ -1,0 +1,55 @@
+● What is JSX?
+JSX stands for JavaScript XML. It's a syntax extension for JavaScript 
+that allows you to write HTML-like code within your JavaScript files 
+and vice versa.
+
+● Superpowers of JSX
+  1. {} -> you can write any JavaScript you want to write inside it 
+  2. JSX also handles fake api data that is provided by hacker
+  3. It helps catch errors during compilation, such as missing 
+     closing tags or incorrect attribute names
+
+● Role of type attribute in script tag? What options can I use there?
+   Common options for the type attribute in JSX scripts are:
+   1. text/jsx: Indicates that the script contains JSX code.
+   2. text/jsx;harmony=true: Enables ECMAScript 6 features in JSX.
+   3. text/babel: Often used with Babel, a popular JavaScript compiler,
+      to transpile JSX code into JavaScript.
+● {TitleComponent} 
+    It is a JSX element only 
+    for eg :
+    const fullname = <span style={{ color: "red" }}>Ashish Yadav</span>;
+    It gives a JSX element which is at the end converted to ReactElement 
+    with the help of babel 
+
+● {<TitleComponent/>} or {<TitleComponent></TitleComponent>}
+    It is a React functional Component 
+    It returns a ReactElement(object)
+    for eg :
+        const FullName = () => {
+        return <span style={{ color: "red" }}>Ashish Yadav</span>;
+        };
+
+
+● What are different method to call a React functional Component
+    1. <FullName />
+    2. <FullName> </FullName>
+    3. {FullName()}
+
+● What are different tpyes of attribute which we can pass to a JSX
+    Sure, here are just the names of custom attributes:
+    1. `data-*`
+    2. Application-specific attributes (e.g., `variant`, `size`)
+    3. Functions as props (e.g., `onClick`)
+    4. Flag attributes (e.g., `autoFocus`, `disabled`)
+
+● How can u pass function as a prop ?
+   function handleClick() {
+        console.log("Button clicked!");
+        }
+
+    <Button onClick={handleClick}>
+            Click me
+    </Button>
+
+
