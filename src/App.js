@@ -5,6 +5,7 @@ import { Body } from "./components/Body";
 // import Body from "./components/Body";
 
 const Applayout = () => {
+  console.log("Applayout");
   return (
     <div className="app">
       <Header />

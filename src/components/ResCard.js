@@ -1,5 +1,6 @@
 const ResCard = (props) => {
-  const { resName, cuisine, rating, time,imgSrc } = props;
+  const { resName, cuisine, rating, time, imgSrc } = props;
+  console.log("ResCard");
   return (
     <div className="res-card">
       <img src={imgSrc} />

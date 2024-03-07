@@ -1,5 +1,6 @@
 import { LOGO_URL } from "../utils/constants";
 const Header = () => {
+  console.log('Header');
   return (
     <div className="header">
       <div className="logo-container">

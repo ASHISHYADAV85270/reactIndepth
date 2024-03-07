@@ -1,16 +1,24 @@
 import { ResCard } from "./ResCard";
 import Resdata from "../utils/mockData";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Body = () => {
-  let [data, setData] = useState(Resdata);
+  const [data, setData] = useState(Resdata);
+  const [searchValue, setSearchValue] = useState("");
+
   const handleChange = (e) => {
-    setData(
-      data.filter((res) =>
-        res.resName.toLowerCase().includes(e.target.value.toLowerCase())
-      )
-    );
+    setSearchValue(e.target.value.toLowerCase());
   };
+  useEffect(() => {
+    setData(
+      Resdata.filter((res) => {
+        const resName = res.resName.toLowerCase();
+        return resName.includes(searchValue);
+      })
+    );
+  }, [searchValue]);
+
+  console.log("Body");
   return (
     <div className="body">
       <div className="searchbar">
@@ -18,6 +26,7 @@ const Body = () => {
           type="text"
           placeholder="Search here your fav Restraurent"
           onChange={handleChange}
+          value={searchValue}
         />
       </div>
       <div className="filter">
