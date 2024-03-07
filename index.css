@@ -34,7 +34,6 @@
 
 .res-card {
   width: 200px;
-  height: 300px;
   border: 1px solid grey;
   padding: 2px;
   background-color: lightgrey;
@@ -48,9 +47,23 @@
   height: 180px;
   width: 195px;
   object-fit: cover;
-
 }
 
 .searchbar {
   padding: 10px;
+}
+
+.searchbar input {
+  width: 340px;
+  padding: 10px;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+
+.filter-btn {
+  padding: 10px;
+  background-color: lightblue;
+  color: black;
+  font-size: 16px;
+  font-weight: 600;
 }
