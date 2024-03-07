@@ -1,0 +1,39 @@
+● What is Reconciliation in React?
+  Reconciliation is the process through which React updates the 
+  UI to match the most recent state of the application. When the state or props
+  of a component change, React compares the new element tree with the previous one, 
+  identifies the differences (referred to as "diffing"), and applies only the necessary 
+  updates to the real DOM. This process ensures that the UI remains 
+  consistent with the application's data and state changes.
+
+● What is React Fiber?
+  React Fiber is a rewrite of React's core algorithm for better
+  performance and responsiveness in applications. It breaks rendering work into 
+  smaller chunks, making apps smoother and more interactive, especially with large 
+  component trees. Introduced in React 16, it prioritizes updates and can pause and 
+  resume work, enhancing resource management and user experience.
+
+
+
+● Why we need keys in React? When do we need keys in React?
+    Efficient Reconciliation: React uses keys to determine which items have changed,
+    been added, or been removed in a list. When React reconciles the 
+    virtual DOM with the actual DOM, it uses keys to optimize
+    this process by identifying which elements need to be updated.
+
+● Can we use index as keys in React?
+  React itself says that dont use index as keys in React . If you order of the elements is 
+  changing dont use index. Because react identifies which elements need to be changed with
+  the help of index . 
+
+● What is props in React? 
+  Props are just argument passed to the React functional component 
+  Pros are wrapped up in an objet and then goes as a prop in the function argument 
+
+● What is a Config Driven UI ?
+  A Config-Driven UI, also known as Configuration-Driven UI or Configurable UI, 
+  is a design approach where the layout, behavior, and appearance of a user interface 
+  are defined and controlled by a configuration file(API) or data structure (map , array , object )
+  rather than hardcoding them into the application code.
+
+ 
