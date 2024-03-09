@@ -5,20 +5,9 @@ import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [listofRestrau, setListofRestrau] = useState([]);
-  const [searchValue, setSearchValue] = useState("");
-  const [filtered, isFiltered] = useState("");
-
-  const handleChange = (e) => {
-    setSearchValue(e.target.value.toLowerCase());
-  };
-  useEffect(() => {
-    setListofRestrau(
-      listofRestrau.filter((res) => {
-        const resName = res.name.toLowerCase();
-        return resName.includes(searchValue);
-      })
-    );
-  }, [searchValue]);
+  const [filteredRestrau, setFilteredRestrau] = useState([]); // ! for rendering according to search
+  const [filteredbtn, setFilteredbtn] = useState("Top Rated"); // ! for rendering according to top rated
+  const [searchtext, setSearchtext] = useState("");
 
   const fetchData = async () => {
     try {
@@ -26,6 +15,7 @@ const Body = () => {
       const jsondata = await res.json();
       const { restaurants } = jsondata;
       setListofRestrau(restaurants);
+      setFilteredRestrau(restaurants);
     } catch (error) {
       console.log(error);
     }
@@ -35,32 +25,53 @@ const Body = () => {
     fetchData();
   }, []);
 
-  if (listofRestrau.length === 0) {
-    return <Shimmer />;
-  }
-
-  return (
+  return listofRestrau.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className="body">
       <div className="searchbar">
         <input
           type="text"
           placeholder="Search here your fav Restraurent"
-          onChange={handleChange}
-          value={searchValue}
+          value={searchtext}
+          onChange={(e) => {
+            setSearchtext(e.target.value);
+          }}
         />
+        <button
+          onClick={() => {
+            setFilteredRestrau(
+              listofRestrau.filter((restaurant) => {
+                return restaurant.name
+                  .toLowerCase()
+                  .includes(searchtext.toLowerCase());
+              })
+            );
+          }}
+        >
+          Search
+        </button>
       </div>
       <div className="filter">
         <button
           className="filter-btn"
           onClick={() => {
-            setListofRestrau(listofRestrau.filter((res) => res.rating > 4.5));
+            if (filteredbtn == "Top Rated") {
+              setFilteredRestrau(
+                listofRestrau.filter((res) => res.rating > 4.5)
+              );
+              setFilteredbtn("All Restraurent");
+            } else {
+              setFilteredRestrau(listofRestrau);
+              setFilteredbtn("Top Rated");
+            }
           }}
         >
-          Top Rated Button
+          {filteredbtn}
         </button>
       </div>
       <div className="res-container">
-        {listofRestrau.map((res) => (
+        {filteredRestrau.map((res) => (
           <ResCard
             resName={res.name}
             resDescription={res.description}
