@@ -1,24 +1,44 @@
 import { ResCard } from "./ResCard";
-import Resdata from "../utils/mockData";
+// import Resdata from "../utils/mockData";
 import { useEffect, useState } from "react";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
-  const [data, setData] = useState(Resdata);
+  const [listofRestrau, setListofRestrau] = useState([]);
   const [searchValue, setSearchValue] = useState("");
+  const [filtered, isFiltered] = useState("");
 
   const handleChange = (e) => {
     setSearchValue(e.target.value.toLowerCase());
   };
   useEffect(() => {
-    setData(
-      Resdata.filter((res) => {
-        const resName = res.resName.toLowerCase();
+    setListofRestrau(
+      listofRestrau.filter((res) => {
+        const resName = res.name.toLowerCase();
         return resName.includes(searchValue);
       })
     );
   }, [searchValue]);
 
-  console.log("Body");
+  const fetchData = async () => {
+    try {
+      const res = await fetch("https://restaurant-api.dicoding.dev/list");
+      const jsondata = await res.json();
+      const { restaurants } = jsondata;
+      setListofRestrau(restaurants);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  if (listofRestrau.length === 0) {
+    return <Shimmer />;
+  }
+
   return (
     <div className="body">
       <div className="searchbar">
@@ -33,21 +53,21 @@ const Body = () => {
         <button
           className="filter-btn"
           onClick={() => {
-            setData(data.filter((res) => res.rating > 4.5));
+            setListofRestrau(listofRestrau.filter((res) => res.rating > 4.5));
           }}
         >
           Top Rated Button
         </button>
       </div>
       <div className="res-container">
-        {data.map((res) => (
+        {listofRestrau.map((res) => (
           <ResCard
-            resName={res.resName}
-            cuisine={res.cuisine}
-            rating={res.rating}
-            time={res.time}
-            imgSrc={res.imgSrc}
-            key={res.imgSrc}
+            resName={res.name}
+            resDescription={res.description}
+            resRating={res.rating}
+            imgId={res.pictureId}
+            key={res.id}
+            resCity={res.city}
           />
         ))}
       </div>
