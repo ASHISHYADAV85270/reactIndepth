@@ -14,17 +14,19 @@ const Header = () => {
           <li>About Us</li>
           <li>Contact Us</li>
           <li>Cart</li>
-          <button
-            onClick={() => {
-              if (btnName === "Logout") {
-                setBtnName("Login");
-              } else {
-                setBtnName("Logout");
-              }
-            }}
-          >
-            {btnName}
-          </button>
+          <li>
+            <button
+              onClick={() => {
+                if (btnName === "Logout") {
+                  setBtnName("Login");
+                } else {
+                  setBtnName("Logout");
+                }
+              }}
+            >
+              {btnName}
+            </button>
+          </li>
         </ul>
       </div>
     </div>
