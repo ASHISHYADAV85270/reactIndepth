@@ -15,8 +15,10 @@
   object-fit: contain;
 }
 
+
 .nav-items > ul {
   display: flex;
+  align-items:center;
   list-style: none;
   gap: 4px;
 }
@@ -26,17 +28,12 @@
   font-size: 23px;
 }
 
-.nav-items > ul > button {
-  margin-left: 14px;
-  font-size: 23px;
+.nav-items > ul > li > button {
   padding: 10px;
+  border: 1px solid grey;
+  border-radius: 5px;
   background-color: rgb(100, 98, 98);
-  border: 1px solid transparent;
-  border-radius: 20px;
-  -webkit-border-radius: 20xp;
-  -moz-border-radius: 20xp;
-  -ms-border-radius: 20xp;
-  -o-border-radius: 20xp;
+  color: white;
 }
 
 .res-container {
@@ -46,9 +43,10 @@
 }
 
 .res-card {
-  width: 200px;
+  width: 250px;
   border: 1px solid grey;
-  padding: 2px;
+  padding: 4px;
+  text-align: center;
   background-color: lightgrey;
   display: flex;
   flex-direction: column;
@@ -57,8 +55,8 @@
   gap: 9px;
 }
 .res-card > img {
-  height: 180px;
-  width: 195px;
+  height: 200px;
+  width: 98%;
   object-fit: cover;
 }
 
@@ -73,18 +71,22 @@
   border-radius: 5px;
 }
 
-.filter-btn {
+.searchbar button {
+  margin-left: 20px;
   padding: 10px;
-  background-color: lightblue;
-  color: black;
-  font-size: 16px;
-  font-weight: 600;
-  border: 1px solid black;
-  border-radius: 19px;
-  -webkit-border-radius: 19px;
-  -moz-border-radius: 19px;
-  -ms-border-radius: 19px;
-  -o-border-radius: 19px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  background-color: rgb(100, 98, 98);
+  color: white;
+}
+.filter-btn {
+  margin-left: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  background-color: rgb(100, 98, 98);
+  color: white;
 }
 
 .shimmer-container {
@@ -94,7 +96,7 @@
   gap: 20px;
 }
 .shimmer-cards {
-  width: 200px;
+  width: 250px;
   height: 300px;
   background-color: lightgrey;
   border: 1px solid grey;
