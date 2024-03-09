@@ -1,0 +1,15 @@
+● What is Monolith architecture?
+  When frontend , backend , databasestorage and etc all are in the same repository ,written 
+  and deployed together .
+  adv-> It is less complex and highly productive
+  dis adv -> If a error is there it will break the whole system and scalability is less
+
+
+● What is a Microservice ?
+  Sb kuch alag alag server pai hota hai .
+  
+● What is Shimmer UI ?
+  Shimmer UI is a user interface design pattern used to indicate that content is loading. 
+  It typically involves displaying animated placeholders in the layout structure of the 
+  content being loaded, giving users a visual cue that something is happening in the background.
+
