@@ -1,5 +1,5 @@
 import React from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import ReactDOM from "react-dom/client";
 import { Header } from "./components/Header";
 import { Body } from "./components/Body";
@@ -11,15 +11,22 @@ const Applayout = () => {
   return (
     <div className="app">
       <Header />
-      <Body />
+      <Outlet />
     </div>
   );
 };
 
 const appRouter = createBrowserRouter([
-  { path: "/", element: <Applayout />, errorElement: <Error /> },
-  { path: "/aboutus", element: <AboutUs /> },
-  { path: "/contactus", element: <ContactUs /> },
+  {
+    path: "/",
+    element: <Applayout />,
+    errorElement: <Error />,
+    children: [
+      { path: "/", element: <Body /> },
+      { path: "/aboutus", element: <AboutUs /> },
+      { path: "/contactus", element: <ContactUs /> },
+    ],
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

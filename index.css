@@ -24,6 +24,11 @@
 .nav-items > ul > li {
   padding: 10px;
   font-size: 23px;
+  cursor: pointer;
+}
+.nav-items > ul > li > a {
+  text-decoration: none;
+  color: black;
 }
 
 .nav-items > ul > button {
