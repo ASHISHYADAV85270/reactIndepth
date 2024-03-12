@@ -21,17 +21,19 @@ const Header = () => {
             <Link to="/contactus"> Contact Us</Link>
           </li>
           <li>Cart</li>
-          <button
-            onClick={() => {
-              if (btnName === "Logout") {
-                setBtnName("Login");
-              } else {
-                setBtnName("Logout");
-              }
-            }}
-          >
-            {btnName}
-          </button>
+          <li>
+            <button
+              onClick={() => {
+                if (btnName === "Logout") {
+                  setBtnName("Login");
+                } else {
+                  setBtnName("Logout");
+                }
+              }}
+            >
+              {btnName}
+            </button>
+          </li>
         </ul>
       </div>
     </div>

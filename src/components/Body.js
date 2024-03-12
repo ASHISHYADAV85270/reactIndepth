@@ -12,6 +12,7 @@ const Body = () => {
 
   const fetchData = async () => {
     try {
+
       const res = await fetch(
         "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.96340&lng=77.58550&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
       );
@@ -64,7 +65,9 @@ const Body = () => {
           onClick={() => {
             if (filteredbtn == "Top Rated") {
               setFilteredRestrau(
+
                 listofRestrau.filter((res) => res?.info?.avgRating > 4.6)
+
               );
               setFilteredbtn("All Restraurent");
             } else {
@@ -78,6 +81,7 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filteredRestrau.map((res) => (
+
           <Link to={"restaurants/" + res.info.id} key={res.info.id}>
             <ResCard
               resName={res.info.name}
@@ -88,6 +92,7 @@ const Body = () => {
               resCity={res.info.areaName}
             />
           </Link>
+
         ))}
       </div>
     </div>
