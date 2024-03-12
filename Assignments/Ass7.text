@@ -1,0 +1,24 @@
+● What are various ways to add images into our App? Explain with code examples .
+  1. Using normal img tag
+  2. .image-container { background-image: url('path/to/image.jpg') }
+
+
+● What would happen if we do console.log(useState())?
+    currentStateValue and Function to Update the current state
+
+● How will useEffect behave if we don't add a dependency array ?
+  It will run on every render 
+
+● What is SPA?
+  SPA stands for Single Page Application. It's a type of web application or website
+  that delivers a seamless user experience by dynamically updating the content on a
+  single web page, instead of loading entire new pages from the server.
+
+
+● What is difference between Client Side Routing and Server Side Routing?
+ CSR=> when a user click the link,, the browser doesn't request a new page from
+ the server but  instead manipulates the URL and loads the appropriate
+ content dynamically without a page reload  --> <Link to=""> </Link>
+ SSR=>When a user clicks on a link, the browser sends a request to the server, and 
+ the server responds by sending the appropriate HTML for the requested page. anchor tag
+
