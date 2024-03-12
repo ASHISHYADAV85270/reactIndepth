@@ -2,6 +2,7 @@ import { ResCard } from "./ResCard";
 // import Resdata from "../utils/mockData";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [listofRestrau, setListofRestrau] = useState([]);
@@ -11,7 +12,7 @@ const Body = () => {
 
   const fetchData = async () => {
     try {
-      // const res = await fetch("https://restaurant-api.dicoding.dev/list");
+
       const res = await fetch(
         "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.96340&lng=77.58550&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
       );
@@ -20,7 +21,6 @@ const Body = () => {
       const restaurants =
         jsondata.data.cards[4].card.card.gridElements.infoWithStyle.restaurants;
 
-      console.log(restaurants);
       setListofRestrau(restaurants);
       setFilteredRestrau(restaurants);
     } catch (error) {
@@ -65,7 +65,9 @@ const Body = () => {
           onClick={() => {
             if (filteredbtn == "Top Rated") {
               setFilteredRestrau(
-                listofRestrau.filter((res) => res?.info?.avgRating > 4.2)
+
+                listofRestrau.filter((res) => res?.info?.avgRating > 4.6)
+
               );
               setFilteredbtn("All Restraurent");
             } else {
@@ -79,14 +81,18 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filteredRestrau.map((res) => (
-          <ResCard
-            resName={res.info.name}
-            resCuisines={res.info.cuisines}
-            resRating={res.info.avgRating}
-            imgId={res.info.cloudinaryImageId}
-            key={res.info.id}
-            resCity={res.info.areaName}
-          />
+
+          <Link to={"restaurants/" + res.info.id} key={res.info.id}>
+            <ResCard
+              resName={res.info.name}
+              resCuisines={res.info.cuisines}
+              resRating={res.info.avgRating}
+              imgId={res.info.cloudinaryImageId}
+              key={res.info.id}
+              resCity={res.info.areaName}
+            />
+          </Link>
+
         ))}
       </div>
     </div>
