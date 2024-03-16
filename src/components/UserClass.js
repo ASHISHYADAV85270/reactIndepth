@@ -1,25 +1,32 @@
 import React from "react";
-import Dummy from "./Dummy";
 class UserClass extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props.name, "Child Constructor");
+    this.state = {
+      userInfo: {
+        name: "Dummy User",
+        avatar_url: "https://avatars.githubusercontent.com/u/123456789?v=4",
+        location: "Default",
+      },
+    };
   }
 
-  componentDidMount() {
-    console.log(this.props.name, "Child Did Mount");
+  async componentDidMount() {
+    const data = await fetch("https://api.github.com/users/johnpapa");
+    const jsondata = await data.json();
+    console.log(jsondata);
+    this.setState({
+      userInfo: jsondata,
+    });
   }
   render() {
-    const { name, location, mbn } = this.props;
-    console.log(this.props.name, "Child Render");
-
+    const { name, location, avatar_url } = this.state.userInfo;
     return (
       <div className="user-card">
-        <Dummy name="First" id={this.props.id} />
-        <Dummy name="Second" id={this.props.id} />
-        <h2>{name} </h2>
-        <h4>{location} </h4>
-        <h5>{mbn} </h5>
+        User Card
+        <p>{name}</p>
+        <p>{location}</p>
+        <img src={avatar_url} alt="" width={250} height={250} />
       </div>
     );
   }
