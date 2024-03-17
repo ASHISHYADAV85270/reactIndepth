@@ -3,6 +3,7 @@
     project . 
     Transitive dependencies-> parcel-> some child dependencies-> other child dependencies
     mtlb ek kai andar ek
+    
 ● What is `Parcel/Webpack`? Why do we need it?
     Module Bundler for Javascript
     Some important features of the parcel

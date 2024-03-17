@@ -1,8 +1,7 @@
 ● What is the importance of config.js file
-    A config.js file is commonly used to store 
-    configuration settings for an application. 
-    It centralizes configuration parameters such as API endpoints, 
-    environment variables, database connections, etc. This separation of 
-    configuration from application code makes it easier to manage and modify 
-    settings without touching the actual codebase. It also enhances security
-    by keeping sensitive information separate from the main code .
+    A config.js file is commonly used to store  configuration settings for an
+     application. It centralizes configuration parameters such as API endpoints, 
+    environment variables, database connections, etc. This separation of configuration
+     from application code makes it easier to manage and modify settings without 
+     touching the actual codebase. It also enhances security by keeping sensitive 
+     information separate from the main code .

@@ -12,4 +12,5 @@
   Shimmer UI is a user interface design pattern used to indicate that content is loading. 
   It typically involves displaying animated placeholders in the layout structure of the 
   content being loaded, giving users a visual cue that something is happening in the background.
+  Please Note it is not Lazy Loading
 

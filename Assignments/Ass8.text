@@ -1,0 +1,30 @@
+● How do you create Nested Routes react-router-dom cofiguration ?
+  createBrowserRouter -> path,element,children
+  RouterProvider
+  Outlet
+
+
+● Read abt createHashRouter, createMemoryRouter from React Router docs .
+
+● What is the order of life cycle method calls in Class Based Components ?
+  Constructor 
+  render
+  componentDidMount
+  componentDidUpdate
+  componentWillUnmount
+
+
+● Why do we use componentDidMount?
+  Jb ek baar apni UI render hojati too yeah call hota hai ek baar . isliye hmlog 
+  yhaa pai API data fetch krtai hai usually . Aur yeah ek hi baar call hota hai
+
+
+● Why do we use componentWillUnmount? Show with example ? 
+  componentWillUnmount Jb use hota hai jb boo particular page hmmlog switch krdete hai .
+  setInterval bala example
+
+
+● (Research) Why do we use super(props) in constructor?
+
+
+● (Research) Why can't we have the callback function of useEffect async?

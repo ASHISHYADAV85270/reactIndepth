@@ -31,7 +31,7 @@
 
 
 ● What is difference between react.development.js and react.production.js files via CDN? 
-    By default, React. js builds your project in development mode, which 
+    By default, React.js builds your project in development mode, which 
     includes features like detailed error messages and debugging tools. 
     However, when you're ready to deploy your application, it's important 
     to build it in production mode to benefit from optimized performance and 

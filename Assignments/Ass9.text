@@ -1,0 +1,44 @@
+● When and why do we need lazy()?
+  Jb apna parcel Bundle Bnata hai ssari js files kaa ek index.js mai too boo bhoot baar
+  heavy hojati hai agar apnai number of component bhoot jada hojatai hai 
+  too hmlog kyaa krtai hai us particular file kaa alag bundle bnatai hai jisai loading 
+  bgera aur user experience bekar naa hoo
+  Is liye hmm log lazy loading use krtai hai 
+  Hmarai project mai grocery uskaa example hai 
+
+
+● What is suspense?
+  maanlo hmmlog grocery page pai gyai . to uskii grocery.bundle.js koo load honai mai
+  time lgta hai kyoki boo ek async task hai . Soo to handle that situtation we have suspense 
+  jooo ki hmai react provide krta hai . jisai us time tak hmm kuch aur dhikha skai
+ 
+● Why we got this error : A component suspended while responding to synchronous input. This will cause the UI to be replaced
+ with a loading indicator. To fix, updates that suspend should be wrapped with startTransition? How doessuspense 
+ fix this error?
+
+    This error occurs when a component attempts to perform an asynchronous operation synchronously, 
+    whichcan lead to janky user experience or even freezing the UI.
+    Suspense fixes this error by allowing you to wrap asynchronous operations, such as data fetching 
+    or lazy-loading, and handle the loading state gracefully without blocking the UI. It lets you suspend rendering until 
+    the asynchronous operation is completed, improving the user experience.
+
+
+### Advantages of Code Splitting Pattern:
+
+1. Reduced Initial Loading Time
+2. Improved Performance
+3. Enhanced User Experience
+4. Optimized Resource Utilization
+5. Better Caching and Offline Support
+
+### Disadvantages of Code Splitting Pattern:
+
+1. Complexity and Overhead
+2. Potential for Runtime Errors
+3. Debugging and Troubleshooting Challenges
+4. Increased Initial Setup and Configuration
+5. Compatibility and Browser Support Issues
+
+
+Further refer app.js for example
+
