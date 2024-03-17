@@ -1,36 +1,25 @@
 import { ResCard } from "./ResCard";
-// import Resdata from "../utils/mockData";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useListofRestraurent from "../utils/useListofRestraurent";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
-  const [listofRestrau, setListofRestrau] = useState([]);
+  const listofRestrau = useListofRestraurent();
   const [filteredRestrau, setFilteredRestrau] = useState([]); // ! for rendering according to search
   const [filteredbtn, setFilteredbtn] = useState("Top Rated"); // ! for rendering according to top rated
   const [searchtext, setSearchtext] = useState("");
 
-  const fetchData = async () => {
-    try {
-
-      const res = await fetch(
-        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.96340&lng=77.58550&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-      );
-      const jsondata = await res.json();
-
-      const restaurants =
-        jsondata.data.cards[4].card.card.gridElements.infoWithStyle.restaurants;
-
-      setListofRestrau(restaurants);
-      setFilteredRestrau(restaurants);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   useEffect(() => {
-    fetchData();
-  }, []);
+    setFilteredRestrau(listofRestrau);
+  }, [listofRestrau]);
+
+  const onlineStatus = useOnlineStatus();
+  if (onlineStatus == false) {
+    console.log(onlineStatus);
+    return <h1>Looks like you are offline</h1>;
+  }
 
   return listofRestrau.length === 0 ? (
     <Shimmer />
@@ -65,9 +54,7 @@ const Body = () => {
           onClick={() => {
             if (filteredbtn == "Top Rated") {
               setFilteredRestrau(
-
                 listofRestrau.filter((res) => res?.info?.avgRating > 4.6)
-
               );
               setFilteredbtn("All Restraurent");
             } else {
@@ -81,7 +68,6 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filteredRestrau.map((res) => (
-
           <Link to={"restaurants/" + res.info.id} key={res.info.id}>
             <ResCard
               resName={res.info.name}
@@ -92,7 +78,6 @@ const Body = () => {
               resCity={res.info.areaName}
             />
           </Link>
-
         ))}
       </div>
     </div>

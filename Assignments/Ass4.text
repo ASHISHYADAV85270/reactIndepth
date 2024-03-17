@@ -13,8 +13,6 @@
   component trees. Introduced in React 16, it prioritizes updates and can pause and 
   resume work, enhancing resource management and user experience.
 
-
-
 ● Why we need keys in React? When do we need keys in React?
     Efficient Reconciliation: React uses keys to determine which items have changed,
     been added, or been removed in a list. When React reconciles the 
@@ -22,7 +20,7 @@
     this process by identifying which elements need to be updated.
 
 ● Can we use index as keys in React?
-  React itself says that dont use index as keys in React . If you order of the elements is 
+  React itself says that dont use index as keys in React . If your order of the elements is 
   changing dont use index. Because react identifies which elements need to be changed with
   the help of index . 
 
@@ -31,8 +29,7 @@
   Pros are wrapped up in an objet and then goes as a prop in the function argument 
 
 ● What is a Config Driven UI ?
-  A Config-Driven UI, also known as Configuration-Driven UI or Configurable UI, 
-  is a design approach where the layout, behavior, and appearance of a user interface 
+  A Config-Driven UI or Configurable UI, is a design approach where the layout, behavior, and appearance of a user interface 
   are defined and controlled by a configuration file(API) or data structure (map , array , object )
   rather than hardcoding them into the application code.
 
