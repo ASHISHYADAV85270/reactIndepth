@@ -9,6 +9,7 @@ import RestaurantCategory from "./RestaurantCategory";
 const RestaurantDetails = () => {
   const { resId } = useParams();
   const resInfo = useRestaurants(resId);
+  const [showIndex, setShowIndex] = useState(null);
 
   if (!resInfo) {
     return <Shimmer />;
@@ -29,13 +30,21 @@ const RestaurantDetails = () => {
       <h1 className="text-2xl text-pretty text-center font-extrabold font-serif text-gray-800 mt-3 ">
         Menu Details
       </h1>
-      {categories.map((curr_category,index) => {
-   
+      {categories.map((curr_category, index) => {
         return (
+          // This is a controlled component
           <RestaurantCategory
             title={curr_category.card?.card?.title}
             itemCards={curr_category.card?.card.itemCards}
             key={curr_category.card?.card?.title}
+            showItems={index === showIndex}
+            changeShowIndex={() => {
+              if (showIndex === index) {
+                setShowIndex(null);
+              } else {
+                setShowIndex(index);
+              }
+            }}
           />
         );
       })}

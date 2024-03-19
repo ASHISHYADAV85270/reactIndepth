@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 const CategoryCard = ({ curr_ele }) => {
   return (
     <div className="res-card flex justify-between items-center my-2">
@@ -16,7 +14,9 @@ const CategoryCard = ({ curr_ele }) => {
         </p>
       </div>
       <div className="relative h-[100px] w-[100px] overflow-hidden rounded-lg bg-gray-200 ">
-        <button className="  absolute bottom-[2px]  left-[30px] cursor-pointer bg-slate-100 text-green-500 p-1 rounded-md text-sm ">Add+</button>
+        <button className="  absolute bottom-[2px]  left-[30px] cursor-pointer bg-slate-100 text-green-500 p-1 rounded-md text-sm ">
+          Add+
+        </button>
         <img
           src={
             "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
@@ -33,20 +33,22 @@ const CategoryCard = ({ curr_ele }) => {
     </div>
   );
 };
-const RestaurantCategory = ({ title, itemCards }) => {
-  const [hideitems, setHideitems] = useState(false);
+const RestaurantCategory = ({
+  title,
+  itemCards,
+  showItems,
+  changeShowIndex,
+}) => {
   return (
     <div className="h-auto flex flex-col justify-center items-center ">
       <div
         className="w-1/2 p-4 mx-auto my-1 shadow-xl rounded-md flex justify-between bg-slate-100 text-gray-800 cursor-pointer"
-        onClick={() => {
-          setHideitems(!hideitems);
-        }}
+        onClick={() => changeShowIndex()}
       >
-        {title}({itemCards.length}) <span>⬇</span>{" "}
+        {title} ({itemCards.length}) <span>⬇</span>{" "}
       </div>
       <div className="w-1/2 p-4  rounded-md ">
-        {hideitems &&
+        {showItems &&
           itemCards?.map((curr_ele) => {
             return (
               <CategoryCard
@@ -56,7 +58,6 @@ const RestaurantCategory = ({ title, itemCards }) => {
             );
           })}
       </div>
-      {/*accordian Body */}
     </div>
   );
 };
