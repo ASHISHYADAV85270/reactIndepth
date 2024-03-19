@@ -35,7 +35,7 @@ const withPromedLabel = (ResCard) => {
 
     return (
       <div>
-        <label className="absolute bg-gray-800 text-white rounded-lg p-2">Recommended</label>
+        <label className="absolute bg-gray-800 text-white rounded-lg p-2 z-20">Recommended</label>
         <ResCard {...props} />
       </div>
     );
