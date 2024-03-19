@@ -4,7 +4,8 @@
   Outlet
 
 
-● Read abt createHashRouter, createMemoryRouter from React Router docs .
+● Read about createHashRouter, createMemoryRouter from React Router docs ?
+
 
 ● What is the order of life cycle method calls in Class Based Components ?
   Constructor 
@@ -24,7 +25,7 @@
   setInterval bala example
 
 
-● (Research) Why do we use super(props) in constructor?
+● (Research) Why do we use super(props) in constructor ?
 
 
-● (Research) Why can't we have the callback function of useEffect async?
+● (Research) Why can't we have the callback function of useEffect async ?

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import ReactDOM from "react-dom/client";
 import { Header } from "./components/Header";
@@ -8,9 +8,13 @@ import ContactUs from "./components/ContactUs";
 import Error from "./components/Error";
 import RestaurantDetails from "./components/RestaurantDetails";
 
+const Grocery = lazy(() => {
+  return import("./components/Grocery");
+});
+
 const Applayout = () => {
   return (
-    <div className="app">
+    <div className="app overflow-hidden">
       <Header />
       <Outlet />
     </div>
@@ -26,6 +30,14 @@ const appRouter = createBrowserRouter([
       { path: "/", element: <Body /> },
       { path: "/aboutus", element: <AboutUs /> },
       { path: "/contactus", element: <ContactUs /> },
+      {
+        path: "/grocery",
+        element: (
+          <Suspense fallback={<h2>Loading.....</h2>}>
+            <Grocery />
+          </Suspense>
+        ),
+      },
       { path: "/restaurants/:resId", element: <RestaurantDetails /> },
     ],
   },

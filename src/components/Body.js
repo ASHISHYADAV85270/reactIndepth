@@ -1,4 +1,4 @@
-import { ResCard } from "./ResCard";
+import { ResCard, withPromedLabel } from "./ResCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -10,6 +10,7 @@ const Body = () => {
   const [filteredRestrau, setFilteredRestrau] = useState([]); // ! for rendering according to search
   const [filteredbtn, setFilteredbtn] = useState("Top Rated"); // ! for rendering according to top rated
   const [searchtext, setSearchtext] = useState("");
+  const PromotedRestraurent = withPromedLabel(ResCard);
 
   useEffect(() => {
     setFilteredRestrau(listofRestrau);
@@ -25,10 +26,13 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="searchbar">
+      <div className="searchbar flex gap-3 p-4">
         <input
           type="text"
-          placeholder="Search here your fav Restraurent"
+          name="restaurant"
+          id="restaurant"
+          className="block w-96 rounded-md border-0 py-1 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-950 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"
+          placeholder="Search here your favourite  Restaurant......"
           value={searchtext}
           onChange={(e) => {
             setSearchtext(e.target.value);
@@ -44,17 +48,18 @@ const Body = () => {
               })
             );
           }}
+          type="button"
+          className="box-border bg-blue-500 hover:bg-transparent hover:border-2  hover:text-blue-500 text-white font-bold py-2 px-4  border-2 border-blue-500 rounded"
         >
           Search
         </button>
       </div>
-      <div className="filter">
+      <div className="p-3">
         <button
-          className="filter-btn"
           onClick={() => {
             if (filteredbtn == "Top Rated") {
               setFilteredRestrau(
-                listofRestrau.filter((res) => res?.info?.avgRating > 4.6)
+                listofRestrau.filter((res) => res?.info?.avgRating > 4.2)
               );
               setFilteredbtn("All Restraurent");
             } else {
@@ -62,21 +67,34 @@ const Body = () => {
               setFilteredbtn("Top Rated");
             }
           }}
+          type="button"
+          className="box-border bg-blue-500 hover:bg-transparent hover:border-2  hover:text-blue-500 text-white font-bold py-2 px-4  border-2 border-blue-500 rounded"
         >
           {filteredbtn}
         </button>
       </div>
-      <div className="res-container">
+      <div className=" p-3 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
         {filteredRestrau.map((res) => (
           <Link to={"restaurants/" + res.info.id} key={res.info.id}>
-            <ResCard
-              resName={res.info.name}
-              resCuisines={res.info.cuisines}
-              resRating={res.info.avgRating}
-              imgId={res.info.cloudinaryImageId}
-              key={res.info.id}
-              resCity={res.info.areaName}
-            />
+            {res.info.avgRating > 4.2 ? (
+              <ResCard
+                resName={res.info.name}
+                resCuisines={res.info.cuisines}
+                resRating={res.info.avgRating}
+                imgId={res.info.cloudinaryImageId}
+                key={res.info.id}
+                resCity={res.info.areaName}
+              />
+            ) : (
+              <PromotedRestraurent
+                resName={res.info.name}
+                resCuisines={res.info.cuisines}
+                resRating={res.info.avgRating}
+                imgId={res.info.cloudinaryImageId}
+                key={res.info.id}
+                resCity={res.info.areaName}
+              />
+            )}
           </Link>
         ))}
       </div>
