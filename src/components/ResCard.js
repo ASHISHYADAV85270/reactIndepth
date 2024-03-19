@@ -3,19 +3,42 @@ import { Link } from "react-router-dom";
 const ResCard = (props) => {
   const { resName, resCuisines, imgId, resCity, resRating } = props;
   return (
-    <div className="res-card">
-      <img
-        src={
-          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-          imgId
-        }
-      />
-      <h4>{resName}</h4>
-      <span>{resCuisines.join("--")}</span>
-      <h4>{resRating}⭐️</h4>
-      <h4>Located At : {resCity}</h4>
+    <div className="res-card hover:animate-pulse">
+      <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
+        <img
+          src={
+            "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
+            imgId
+          }
+          alt="Image not found"
+          className="h-[300px] w-full object-cover object-center group-hover:opacity-75"
+        />
+      </div>
+      <h3 className="mt-4 text-sm text-gray-700">{resName}</h3>
+      <p className="mt-1 text-lg font-medium text-gray-900">
+        {resCuisines.join(" , ")}
+      </p>
+      <p className="mt-1 text-lg font-medium text-gray-900">{resRating}⭐️</p>
+      <p className="mt-1 text-lg font-medium text-gray-900">
+        Located At : {resCity}
+      </p>
     </div>
   );
 };
-
 export { ResCard };
+
+//Higher Order Component
+// I -> RestaurantCard -> O -> RestaurantCardPromoted
+
+const withPromedLabel = (ResCard) => {
+  return (props) => {
+
+    return (
+      <div>
+        <label className="absolute bg-gray-800 text-white rounded-lg p-2">Recommended</label>
+        <ResCard {...props} />
+      </div>
+    );
+  };
+};
+export { withPromedLabel };
