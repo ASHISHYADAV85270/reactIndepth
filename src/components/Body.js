@@ -11,7 +11,8 @@ const Body = () => {
   const [filteredbtn, setFilteredbtn] = useState("Top Rated"); // ! for rendering according to top rated
   const [searchtext, setSearchtext] = useState("");
   const PromotedRestraurent = withPromedLabel(ResCard);
-  const { userName, setUserName } = useContext(UserContext);
+  const { userName, setUserName, isDarkTheme, setDarkTheme } =
+    useContext(UserContext);
 
   useEffect(() => {
     setFilteredRestrau(listofRestrau);
@@ -19,14 +20,13 @@ const Body = () => {
 
   const onlineStatus = useOnlineStatus();
   if (onlineStatus == false) {
-    console.log(onlineStatus);
     return <h1>Looks like you are offline</h1>;
   }
 
   return listofRestrau.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="body">
+    <div className={`${isDarkTheme ? "bg-gray-900" : ""}`}>
       <div className="searchbar flex gap-3 p-4">
         <input
           type="text"

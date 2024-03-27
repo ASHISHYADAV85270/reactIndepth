@@ -6,16 +6,26 @@ import { UserContext } from "../utils/UserContext";
 
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
-  const { userName } = useContext(UserContext);
+  const { userName, isDarkTheme, setDarkTheme } = useContext(UserContext);
 
   const onlineStatus = useOnlineStatus();
   return (
-    <div className="header flex justify-between items-center  shadow-slate-100 shadow-xl ">
+    <div
+      className={
+        `${isDarkTheme ? "bg-black shadow-gray-800  " : "shadow-slate-100"}` +
+        " header flex justify-between items-center h-24 shadow-lg "
+      }
+    >
       <div className="logo-container">
-        <img className="logo w-40" src={LOGO_URL} />
+        <img className="logo w-40 rounded-lg " src={LOGO_URL} />
       </div>
-      <div className="nav-items ">
-        <ul className="flex p-4  gap-6 text-gray-800">
+      <div>
+        <ul
+          className={
+            `${isDarkTheme ? "text-slate-400" : "text-gray-800"}` +
+            " flex p-4  gap-6 "
+          }
+        >
           <li>OnlineStatus : {onlineStatus ? "✅" : "🔴"}</li>
           <li>
             <Link to="/"> Home</Link>
@@ -42,6 +52,20 @@ const Header = () => {
             >
               {btnName} {userName}
             </button>
+          </li>
+          <li>
+            <div className="w-12 h-6 bg-gray-400 rounded-full shadow-inner toggle__line">
+              <div
+                className={`${
+                  isDarkTheme
+                    ? "translate-x-6 bg-white"
+                    : "translate-x-0 bg-black"
+                } w-6 h-6  border border-gray-400 rounded-full shadow-md transform transition-transform duration-300 toggle__dot cursor-pointer`}
+                onClick={() => {
+                  setDarkTheme(!isDarkTheme);
+                }}
+              ></div>
+            </div>
           </li>
         </ul>
       </div>
