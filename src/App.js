@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useState } from "react";
+import React, { Suspense, lazy, useEffect, useState } from "react";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import ReactDOM from "react-dom/client";
 import { Header } from "./components/Header";
@@ -15,9 +15,17 @@ const Grocery = lazy(() => {
 
 const Applayout = () => {
   const [userNameValue, setUserName] = useState("");
+  const [isDarkTheme, setDarkTheme] = useState(false);
   return (
-    <UserContext.Provider value={{ userName: userNameValue, setUserName }}>
-      <div className="app overflow-hidden">
+    <UserContext.Provider
+      value={{
+        userName: userNameValue,
+        setUserName,
+        isDarkTheme,
+        setDarkTheme,
+      }}
+    >
+      <div className={`${isDarkTheme ? "bg-gray-900" : ""} `}>
         <Header />
         <Outlet />
       </div>

@@ -1,36 +1,42 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
-import { MENU_API_URL } from "../utils/constants";
 import useRestaurants from "../utils/useRestaurants";
 import RestaurantCategory from "./RestaurantCategory";
+import { UserContext } from "../utils/UserContext";
 
 const RestaurantDetails = () => {
   const { resId } = useParams();
   const resInfo = useRestaurants(resId);
   const [showIndex, setShowIndex] = useState(null);
-
+  const { isDarkTheme } = useContext(UserContext);
   if (!resInfo) {
     return <Shimmer />;
   }
-  const { name } = resInfo?.cards[0]?.card?.card?.info;
+
+  const name = resInfo?.cards[0]?.card?.card?.text;
   const categories =
-    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c) => {
+    resInfo?.cards[4].groupedCard.cardGroupMap.REGULAR.cards.filter((c) => {
       return (
         c.card?.card?.["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
       );
     });
   return (
-    <div>
+    <div className="min-h-[calc(100vh-96px)]">
       <h1 className="text-3xl text-center font-extrabold font-serif text-red-400 mt-3 ">
         {name}
       </h1>
-      <h1 className="text-2xl text-pretty text-center font-extrabold font-serif text-gray-800 mt-3 ">
+      <h1
+        className={
+          `${`${isDarkTheme ? "text-slate-400" : "text-gray-800"}`}` +
+          " text-2xl text-pretty text-center font-extrabold font-serif  mt-3 "
+        }
+      >
         Menu Details
       </h1>
-      {categories.map((curr_category, index) => {
+      {categories?.map((curr_category, index) => {
         return (
           // This is a controlled component
           <RestaurantCategory

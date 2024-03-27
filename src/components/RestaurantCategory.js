@@ -1,20 +1,42 @@
+import { useContext } from "react";
+import { UserContext } from "../utils/UserContext";
+
 const CategoryCard = ({ curr_ele }) => {
+  const { isDarkTheme } = useContext(UserContext);
+
   return (
     <div className="res-card flex justify-between items-center my-2">
       <div className="flex-col w-2/3 gap-2">
-        <p className=" text-sm font-medium text-gray-600">
+        <p
+          className={
+            `${isDarkTheme ? "text-gray-600" : ""}` + " text-lg font-extrabold "
+          }
+        >
           {curr_ele?.card?.info?.name}
         </p>
 
         <p className=" text-xs font-medium text-red-400 text-wrap">
           {curr_ele?.card?.info?.description?.substr(0, 40)}
         </p>
-        <p className=" text-xs font-medium ">
+        <p
+          className={
+            `${isDarkTheme ? "text-red-500" : ""}` + " text-xs font-medium "
+          }
+        >
           Dish Price - {curr_ele?.card?.info?.price / 100}
         </p>
       </div>
       <div className="relative h-[100px] w-[100px] overflow-hidden rounded-lg bg-gray-200 ">
-        <button className="  absolute bottom-[2px]  left-[30px] cursor-pointer bg-slate-100 text-green-500 p-1 rounded-md text-sm ">
+        <button
+          className={
+            `${
+              isDarkTheme
+                ? "text-white bg-black"
+                : "bg-slate-100 text-green-500"
+            }` +
+            "  absolute bottom-[2px]  left-[30px] cursor-pointer  p-1 rounded-md text-sm "
+          }
+        >
           Add+
         </button>
         <img
@@ -39,13 +61,21 @@ const RestaurantCategory = ({
   showItems,
   changeShowIndex,
 }) => {
+  const { isDarkTheme } = useContext(UserContext);
   return (
     <div className="h-auto flex flex-col justify-center items-center ">
       <div
-        className="w-1/2 p-4 mx-auto my-1 shadow-xl rounded-md flex justify-between bg-slate-100 text-gray-800 cursor-pointer"
+        className={
+          `${
+            isDarkTheme
+              ? " shadow-gray-400 bg-gray-700 text-slate-200   "
+              : " bg-slate-100 text-gray-800  "
+          }` +
+          " w-1/2 p-4 mx-auto my-1  rounded-md shadow-xl flex justify-between  cursor-pointer"
+        }
         onClick={() => changeShowIndex()}
       >
-        {title} ({itemCards.length}) <span>⬇</span>{" "}
+        {title} ({itemCards.length}) <span>⬇</span>
       </div>
       <div className="w-1/2 p-4  rounded-md ">
         {showItems &&
