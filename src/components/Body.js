@@ -1,16 +1,17 @@
 import { ResCard, withPromedLabel } from "./ResCard";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useListofRestraurent from "../utils/useListofRestraurent";
 import useOnlineStatus from "../utils/useOnlineStatus";
-
+import { UserContext } from "../utils/UserContext";
 const Body = () => {
   const listofRestrau = useListofRestraurent();
   const [filteredRestrau, setFilteredRestrau] = useState([]); // ! for rendering according to search
   const [filteredbtn, setFilteredbtn] = useState("Top Rated"); // ! for rendering according to top rated
   const [searchtext, setSearchtext] = useState("");
   const PromotedRestraurent = withPromedLabel(ResCard);
+  const { userName, setUserName } = useContext(UserContext);
 
   useEffect(() => {
     setFilteredRestrau(listofRestrau);
@@ -31,13 +32,14 @@ const Body = () => {
           type="text"
           name="restaurant"
           id="restaurant"
-          className="block w-96 rounded-md border-0 py-1 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-950 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"
+          className="block w-96 rounded-md border-0 py-1 pl-7 pr-7 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-950 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"
           placeholder="Search here your favourite  Restaurant......"
           value={searchtext}
           onChange={(e) => {
             setSearchtext(e.target.value);
           }}
         />
+
         <button
           onClick={() => {
             setFilteredRestrau(
@@ -53,6 +55,17 @@ const Body = () => {
         >
           Search
         </button>
+        <input
+          type="text"
+          name="restaurant"
+          id="restaurant"
+          className="block w-50 rounded-md border-0 py-1 pl-7 pr-7 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-950 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"
+          placeholder="Change User"
+          value={userName}
+          onChange={(e) => {
+            setUserName(e.target.value);
+          }}
+        />
       </div>
       <div className="p-3">
         <button
