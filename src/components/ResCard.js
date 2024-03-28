@@ -1,9 +1,8 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
-import { UserContext } from "../utils/UserContext";
+import { DarkContext } from "../utils/DarkContext";
 const ResCard = (props) => {
   const { resName, resCuisines, imgId, resCity, resRating } = props;
-  const { isDarkTheme } = useContext(UserContext);
+  const { isDarkTheme } = useContext(DarkContext);
   return (
     <div
       className={

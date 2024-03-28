@@ -8,6 +8,7 @@ import ContactUs from "./components/ContactUs";
 import Error from "./components/Error";
 import RestaurantDetails from "./components/RestaurantDetails";
 import { UserContext } from "./utils/UserContext";
+import { DarkContext } from "./utils/DarkContext";
 
 const Grocery = lazy(() => {
   return import("./components/Grocery");
@@ -25,10 +26,12 @@ const Applayout = () => {
         setDarkTheme,
       }}
     >
-      <div className={`${isDarkTheme ? "bg-gray-900" : ""} `}>
-        <Header />
-        <Outlet />
-      </div>
+      <DarkContext.Provider value={{ isDarkTheme, setDarkTheme }}>
+        <div className={`${isDarkTheme ? "bg-gray-900" : ""} `}>
+          <Header />
+          <Outlet />
+        </div>
+      </DarkContext.Provider>
     </UserContext.Provider>
   );
 };

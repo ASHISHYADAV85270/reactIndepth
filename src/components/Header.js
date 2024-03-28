@@ -3,11 +3,12 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import { UserContext } from "../utils/UserContext";
+import { DarkContext } from "../utils/DarkContext";
 
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
-  const { userName, isDarkTheme, setDarkTheme } = useContext(UserContext);
-
+  const { userName } = useContext(UserContext);
+  const { isDarkTheme, setDarkTheme } = useContext(DarkContext);
   const onlineStatus = useOnlineStatus();
   return (
     <div

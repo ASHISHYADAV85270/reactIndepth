@@ -1,9 +1,7 @@
 import { useContext } from "react";
-import { UserContext } from "../utils/UserContext";
-
+import { DarkContext } from "../utils/DarkContext";
 const CategoryCard = ({ curr_ele }) => {
-  const { isDarkTheme } = useContext(UserContext);
-
+  const { isDarkTheme } = useContext(DarkContext);
   return (
     <div className="res-card flex justify-between items-center my-2">
       <div className="flex-col w-2/3 gap-2">
@@ -61,7 +59,7 @@ const RestaurantCategory = ({
   showItems,
   changeShowIndex,
 }) => {
-  const { isDarkTheme } = useContext(UserContext);
+  const { isDarkTheme } = useContext(DarkContext);
   return (
     <div className="h-auto flex flex-col justify-center items-center ">
       <div

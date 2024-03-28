@@ -5,14 +5,15 @@ import { Link } from "react-router-dom";
 import useListofRestraurent from "../utils/useListofRestraurent";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import { UserContext } from "../utils/UserContext";
+import { DarkContext } from "../utils/DarkContext";
 const Body = () => {
   const listofRestrau = useListofRestraurent();
   const [filteredRestrau, setFilteredRestrau] = useState([]); // ! for rendering according to search
   const [filteredbtn, setFilteredbtn] = useState("Top Rated"); // ! for rendering according to top rated
   const [searchtext, setSearchtext] = useState("");
   const PromotedRestraurent = withPromedLabel(ResCard);
-  const { userName, setUserName, isDarkTheme, setDarkTheme } =
-    useContext(UserContext);
+  const { userName, setUserName } = useContext(UserContext);
+  const { isDarkTheme } = useContext(DarkContext);
 
   useEffect(() => {
     setFilteredRestrau(listofRestrau);

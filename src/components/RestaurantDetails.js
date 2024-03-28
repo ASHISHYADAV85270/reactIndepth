@@ -4,13 +4,13 @@ import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
 import useRestaurants from "../utils/useRestaurants";
 import RestaurantCategory from "./RestaurantCategory";
-import { UserContext } from "../utils/UserContext";
+import { DarkContext } from "../utils/DarkContext";
 
 const RestaurantDetails = () => {
   const { resId } = useParams();
   const resInfo = useRestaurants(resId);
   const [showIndex, setShowIndex] = useState(null);
-  const { isDarkTheme } = useContext(UserContext);
+  const { isDarkTheme } = useContext(DarkContext);
   if (!resInfo) {
     return <Shimmer />;
   }
