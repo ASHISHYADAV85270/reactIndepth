@@ -1,7 +1,18 @@
 import { useContext } from "react";
 import { DarkContext } from "../utils/DarkContext";
-const CategoryCard = ({ curr_ele }) => {
+import { useDispatch } from "react-redux";
+import { addToCart, removeItem } from "../utils/cartSlice";
+
+export const CategoryCard = ({ curr_ele, type = "add" }) => {
   const { isDarkTheme } = useContext(DarkContext);
+  const dispatch = useDispatch();
+  const handleAddItem = (item) => {
+    //dispatch an action
+    dispatch(addToCart(item));
+  };
+  const handleRemoveItem = (itemsid) => {
+    dispatch(removeItem(itemsid));
+  };
   return (
     <div className="res-card flex justify-between items-center my-2">
       <div className="flex-col w-2/3 gap-2">
@@ -25,18 +36,36 @@ const CategoryCard = ({ curr_ele }) => {
         </p>
       </div>
       <div className="relative h-[100px] w-[100px] overflow-hidden rounded-lg bg-gray-200 ">
-        <button
-          className={
-            `${
-              isDarkTheme
-                ? "text-white bg-black"
-                : "bg-slate-100 text-green-500"
-            }` +
-            "  absolute bottom-[2px]  left-[30px] cursor-pointer  p-1 rounded-md text-sm "
-          }
-        >
-          Add+
-        </button>
+        {type == "add" ? (
+          <button
+            className={
+              `${
+                isDarkTheme
+                  ? "text-white bg-black"
+                  : "bg-slate-100 text-green-500"
+              }` +
+              "  absolute bottom-[2px]  left-[30px] cursor-pointer  p-1 rounded-md text-sm "
+            }
+            onClick={() => handleAddItem(curr_ele)}
+          >
+            Add +
+          </button>
+        ) : (
+          <button
+            className={
+              `${
+                isDarkTheme
+                  ? "text-white bg-black"
+                  : "bg-slate-100 text-green-500"
+              }` +
+              "  absolute bottom-[2px]  left-[30px] cursor-pointer  p-1 rounded-md text-sm "
+            }
+            onClick={() => handleRemoveItem(curr_ele?.card?.info?.id)}
+          >
+            Remove
+          </button>
+        )}
+
         <img
           src={
             "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
@@ -69,11 +98,12 @@ const RestaurantCategory = ({
               ? " shadow-gray-400 bg-gray-700 text-slate-200   "
               : " bg-slate-100 text-gray-800  "
           }` +
-          " w-1/2 p-4 mx-auto my-1  rounded-md shadow-xl flex justify-between  cursor-pointer"
+          " w-1/2 p-4 mx-auto my-1  rounded-md shadow-xl flex justify-between  cursor-pointer text-2xl"
         }
         onClick={() => changeShowIndex()}
       >
-        {title} ({itemCards.length}) <span>⬇</span>
+        {title} ({itemCards.length}){" "}
+        {showItems ? <span>↑</span> : <span>↓</span>}
       </div>
       <div className="w-1/2 p-4  rounded-md ">
         {showItems &&

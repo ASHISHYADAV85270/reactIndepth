@@ -4,12 +4,19 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import { UserContext } from "../utils/UserContext";
 import { DarkContext } from "../utils/DarkContext";
+import { useSelector } from "react-redux";
+import appStore from "../utils/appStore";
 
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
   const { userName } = useContext(UserContext);
   const { isDarkTheme, setDarkTheme } = useContext(DarkContext);
   const onlineStatus = useOnlineStatus();
+
+  // subscribing to the store  using the selector
+  const cartItems = useSelector((appStore) => appStore.cart.items);
+
+  console.log("Header Component");
   return (
     <div
       className={
@@ -24,7 +31,7 @@ const Header = () => {
         <ul
           className={
             `${isDarkTheme ? "text-slate-400" : "text-gray-800"}` +
-            " flex p-4  gap-6 "
+            " flex p-4  gap-6  items-center text-xl"
           }
         >
           <li>OnlineStatus : {onlineStatus ? "✅" : "🔴"}</li>
@@ -40,7 +47,11 @@ const Header = () => {
           <li>
             <Link to="/contactus"> Contact Us</Link>
           </li>
-          <li>Cart</li>
+          <li className="text-2xl">
+            <Link to="/cart">
+              🛒 {cartItems.length ? `${cartItems.length}` : ""}
+            </Link>
+          </li>
           <li>
             <button
               onClick={() => {
@@ -51,7 +62,7 @@ const Header = () => {
                 }
               }}
             >
-              {btnName} {userName}
+              {btnName} <span className="text-xl text-red-700 uppercase">{userName} </span>
             </button>
           </li>
           <li>
