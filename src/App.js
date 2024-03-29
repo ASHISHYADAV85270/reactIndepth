@@ -9,7 +9,9 @@ import Error from "./components/Error";
 import RestaurantDetails from "./components/RestaurantDetails";
 import { UserContext } from "./utils/UserContext";
 import { DarkContext } from "./utils/DarkContext";
-
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import CartPage from "./components/CartPage";
 const Grocery = lazy(() => {
   return import("./components/Grocery");
 });
@@ -18,21 +20,23 @@ const Applayout = () => {
   const [userNameValue, setUserName] = useState("");
   const [isDarkTheme, setDarkTheme] = useState(false);
   return (
-    <UserContext.Provider
-      value={{
-        userName: userNameValue,
-        setUserName,
-        isDarkTheme,
-        setDarkTheme,
-      }}
-    >
-      <DarkContext.Provider value={{ isDarkTheme, setDarkTheme }}>
-        <div className={`${isDarkTheme ? "bg-gray-900" : ""} `}>
-          <Header />
-          <Outlet />
-        </div>
-      </DarkContext.Provider>
-    </UserContext.Provider>
+    <Provider store={appStore}>
+      <UserContext.Provider
+        value={{
+          userName: userNameValue,
+          setUserName,
+          isDarkTheme,
+          setDarkTheme,
+        }}
+      >
+        <DarkContext.Provider value={{ isDarkTheme, setDarkTheme }}>
+          <div className={`${isDarkTheme ? "bg-gray-900" : ""} `}>
+            <Header />
+            <Outlet />
+          </div>
+        </DarkContext.Provider>
+      </UserContext.Provider>
+    </Provider>
   );
 };
 
@@ -53,6 +57,8 @@ const appRouter = createBrowserRouter([
           </Suspense>
         ),
       },
+      { path: "/cart", element: <CartPage /> },
+
       { path: "/restaurants/:resId", element: <RestaurantDetails /> },
     ],
   },
