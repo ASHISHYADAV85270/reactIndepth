@@ -15,6 +15,8 @@ const Header = () => {
 
   // subscribing to the store  using the selector
   const cartItems = useSelector((appStore) => appStore.cart.items);
+
+  console.log("Header Component");
   return (
     <div
       className={
@@ -29,7 +31,7 @@ const Header = () => {
         <ul
           className={
             `${isDarkTheme ? "text-slate-400" : "text-gray-800"}` +
-            " flex p-4  gap-6  items-center"
+            " flex p-4  gap-6  items-center text-xl"
           }
         >
           <li>OnlineStatus : {onlineStatus ? "✅" : "🔴"}</li>
@@ -60,7 +62,7 @@ const Header = () => {
                 }
               }}
             >
-              {btnName} {userName}
+              {btnName} <span className="text-xl text-red-700 uppercase">{userName} </span>
             </button>
           </li>
           <li>

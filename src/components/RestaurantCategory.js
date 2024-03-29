@@ -98,11 +98,12 @@ const RestaurantCategory = ({
               ? " shadow-gray-400 bg-gray-700 text-slate-200   "
               : " bg-slate-100 text-gray-800  "
           }` +
-          " w-1/2 p-4 mx-auto my-1  rounded-md shadow-xl flex justify-between  cursor-pointer"
+          " w-1/2 p-4 mx-auto my-1  rounded-md shadow-xl flex justify-between  cursor-pointer text-2xl"
         }
         onClick={() => changeShowIndex()}
       >
-        {title} ({itemCards.length}) <span>⬇</span>
+        {title} ({itemCards.length}){" "}
+        {showItems ? <span>↑</span> : <span>↓</span>}
       </div>
       <div className="w-1/2 p-4  rounded-md ">
         {showItems &&
