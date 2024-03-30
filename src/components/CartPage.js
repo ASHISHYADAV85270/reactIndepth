@@ -1,7 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
 import { CategoryCard } from "./RestaurantCategory";
-import { DarkContext } from "../utils/DarkContext";
-import { useContext } from "react";
 import { clearCart } from "../utils/cartSlice";
 const CartPage = () => {
   const cartItems = useSelector((appStore) => appStore.cart.items);

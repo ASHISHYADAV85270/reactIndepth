@@ -26,6 +26,10 @@
     and speed up subsequent builds.
 
 ●  What is `npx` ?
+    It is mainly used for managing dependencies in a project. In conclusion,
+    while npm is used for managing dependencies in a project, npx is used for
+    executing command-line tools that are part of a package without the need
+    for a global or local installation
 
 ●  What is difference between `dependencies` vs `devDependencies` ?
     dependencies -> dependencies required in production as well
@@ -36,7 +40,7 @@
     hii tree shaking khlata hai .. joo ki parcel krta hai 
 
 ●  What is Hot Module Replacement?
-    Jb hmm file changes save kree too using parcel cache dubara ek build create hoga aur hmme page
+    Jb hmm file changes save kree too using .parcel-cache dubara ek build create hoga aur hmme page
     referesh krnai ki need nhi hoti 
 
 ●  What is the difference between `package.json` and `package-lock.json` ?
