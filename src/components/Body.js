@@ -11,7 +11,7 @@ const Body = () => {
   const [filteredRestrau, setFilteredRestrau] = useState([]); // ! for rendering according to search
   const [filteredbtn, setFilteredbtn] = useState("Top Rated"); // ! for rendering according to top rated
   const [searchtext, setSearchtext] = useState("");
-  const PromotedRestraurent = withPromedLabel(ResCard);
+  const PromotedRestraurent = withPromedLabel(ResCard); // ! High Order Functions 
   const { userName, setUserName } = useContext(UserContext);
   const { isDarkTheme } = useContext(DarkContext);
 
