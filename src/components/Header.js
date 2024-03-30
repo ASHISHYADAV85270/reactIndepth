@@ -61,7 +61,10 @@ const Header = () => {
                 }
               }}
             >
-              {btnName} <span className="text-xl text-red-700 uppercase">{userName} </span>
+              {btnName}{" "}
+              <span className="text-xl text-red-700 uppercase">
+                {userName}{" "}
+              </span>
             </button>
           </li>
           <li>

@@ -8,12 +8,32 @@ const cartSlice = createSlice({
     //addToCart-> Action    reducer func (state, action) => {}
     addToCart: (state, action) => {
       //mutating the state
-      state.items.push(action.payload);
+      const newItem = action.payload;
+
+      const existingItem = state.items.find((item) => {
+        return item.card.info.id === newItem.card.info.id;
+      });
+      if (existingItem) {
+        existingItem.count += newItem.count;
+      } else {
+        newItem.count = 1;
+        state.items.push(newItem);
+      }
+      // console.log(current(state.items));
     },
     removeItem: (state, action) => {
-      state.items = state.items.filter(
-        (item) => item?.card?.info?.id !== action.payload
-      );
+      if (action.payload[1] == 1) {
+        state.items = state.items.filter(
+          (item) => item?.card?.info?.id !== action.payload[0]
+        );
+      } else {
+        state.items.forEach((item) => {
+          if (item?.card?.info?.id === action.payload[0]) {
+            item.count--;
+          }
+        });
+      }
+      state.totalprice -= action.payload[2] / 100;
     },
     clearCart: (state, action) => {
       // console.log(current(state));
