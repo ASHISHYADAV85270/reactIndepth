@@ -1,9 +1,15 @@
 ## Redux is not mandatory 
 ## Debugging is easy if we use Redux -> Redux Dev Tools
 ## There are three libraries
+<<<<<<< Updated upstream
    1. React-Redux - Official React bindings for Redux
    2. Redux Tool kit -The official, opinionated, batteries-included 
                       toolset for efficient Redux development
+=======
+   1. React-Redux - Official React bindings for Redux=> acts as a connecting brigde 
+                    b/w RTK and React
+   2. Redux Tool kit -The official, opinionated, batteries-included toolset for efficient Redux development
+>>>>>>> Stashed changes
    3. Redux - A Predictable State Container for JS Apps
 
 Advantage of Redux Tool Kit 

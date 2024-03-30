@@ -22,6 +22,6 @@
    Yes, if you don't pass a value to the provider, it takes the default value. 
    When creating a context using `React.createContext()`, you can 
    provide a default value. If no value is provided when consuming the context,
-    React will use this default value. This is useful when you want to ensure that 
-    there's always a value available for the context, even if it hasn't been explicitly 
-    provided by a parent component.
+   React will use this default value. This is useful when you want to ensure that 
+   there's always a value available for the context, even if it hasn't been explicitly 
+   provided by a parent component.

@@ -16,9 +16,9 @@
 
 
 ● What is difference between Client Side Routing and Server Side Routing?
- CSR=> when a user click the link,, the browser doesn't request a new page from
+ CSRouting=> when a user click the link,, the browser doesn't request a new page from
  the server but  instead manipulates the URL and loads the appropriate
  content dynamically without a page reload  --> <Link to=""> </Link>
- SSR=>When a user clicks on a link, the browser sends a request to the server, and 
+ SSRouting=>When a user clicks on a link, the browser sends a request to the server, and 
  the server responds by sending the appropriate HTML for the requested page. anchor tag
 
