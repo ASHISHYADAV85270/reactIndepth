@@ -16,7 +16,6 @@ const Header = () => {
   // subscribing to the store  using the selector
   const cartItems = useSelector((appStore) => appStore.cart.items);
 
-  console.log("Header Component");
   return (
     <div
       className={

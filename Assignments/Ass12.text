@@ -1,15 +1,9 @@
 ## Redux is not mandatory 
 ## Debugging is easy if we use Redux -> Redux Dev Tools
 ## There are three libraries
-<<<<<<< Updated upstream
+
    1. React-Redux - Official React bindings for Redux
-   2. Redux Tool kit -The official, opinionated, batteries-included 
-                      toolset for efficient Redux development
-=======
-   1. React-Redux - Official React bindings for Redux=> acts as a connecting brigde 
-                    b/w RTK and React
    2. Redux Tool kit -The official, opinionated, batteries-included toolset for efficient Redux development
->>>>>>> Stashed changes
    3. Redux - A Predictable State Container for JS Apps
 
 Advantage of Redux Tool Kit 
@@ -19,6 +13,20 @@ Advantage of Redux Tool Kit
 
 
 
+createSlice and its configuration:
+createSlice is a function provided by Redux Toolkit for creating Redux slices. It takes an object with configuration options:
+    name: A string value representing the name of the slice.
+    initialState: The initial state value for the slice.
+    reducers: An object where each key represents a reducer function. 
+              These reducer functions will automatically be generated as
+              action creators, enabling direct dispatch without writing 
+              separate action creator functions.
+    extraReducers: An object containing additional reducers outside of the
+                   slice's reducers. These reducers can respond to actions 
+                   dispatched from other slices.
+    slice: A function that generates a slice reducer with the specified
+           initial state and reducers. This function also automatically generates
+           action creators based on the reducers defined in the configuration.
 
 
 ## Redux Toolkit 
@@ -29,3 +37,7 @@ Advantage of Redux Tool Kit
     - dispatch (action)
     - Selector
 
+Earlier Redux Does not Allow to Mutate the State and returning was mandatory
+But not It is mandatory to Mutate the State and not to return  but it is internally doing earlier things only
+to remove the complexity 
+Redux uses immerjs library to notice the changes in the State
