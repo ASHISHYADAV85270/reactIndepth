@@ -11,7 +11,7 @@ export const CategoryCard = ({ curr_ele, type = "add" }) => {
     dispatch(addToCart(item));
   };
   const handleRemoveItem = (itemsid) => {
-    dispatch(removeItem(itemsid));
+    dispatch(removeItem([itemsid, curr_ele.count]));
   };
   return (
     <div className="res-card flex justify-between items-center my-2">
@@ -33,6 +33,13 @@ export const CategoryCard = ({ curr_ele, type = "add" }) => {
           }
         >
           Dish Price - {curr_ele?.card?.info?.price / 100}
+          {type != "add" ? (
+            <span className="text-red-500 font-bold text-sm">
+              Count -{curr_ele?.count}
+            </span>
+          ) : (
+            ""
+          )}
         </p>
       </div>
       <div className="relative h-[100px] w-[100px] overflow-hidden rounded-lg bg-gray-200 ">

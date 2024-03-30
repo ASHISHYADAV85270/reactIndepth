@@ -16,7 +16,6 @@ const Header = () => {
   // subscribing to the store  using the selector
   const cartItems = useSelector((appStore) => appStore.cart.items);
 
-  console.log("Header Component");
   return (
     <div
       className={
@@ -62,7 +61,10 @@ const Header = () => {
                 }
               }}
             >
-              {btnName} <span className="text-xl text-red-700 uppercase">{userName} </span>
+              {btnName}{" "}
+              <span className="text-xl text-red-700 uppercase">
+                {userName}{" "}
+              </span>
             </button>
           </li>
           <li>
