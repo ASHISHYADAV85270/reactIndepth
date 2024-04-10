@@ -19,3 +19,18 @@
 - HTTPs
 - Tree Shaking - remove unused code
 - Different dev and prod bundles
+
+
+# Types of Testing 
+- Unit Testing  -> isolated testing of components 
+- Integrated Testing -> connection fucntionality for two d/f components
+- End to End Testing -> e2e testing -> user land krnai sai leave krnai tak 
+
+
+# Setting Up Testing In Our App
+- Install React Testing Library
+- Install Jest 
+- Install Additional Babel Dependency
+- Configure Babel -> babel.config.js
+- Configure Parcel Config file to disable default babel transpilation
+Parcel also use babel soo there will be conflict between parcel babel configration and configure babel for testing 
