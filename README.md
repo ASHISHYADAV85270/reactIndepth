@@ -33,4 +33,6 @@
 - Install Additional Babel Dependency
 - Configure Babel -> babel.config.js
 - Configure Parcel Config file to disable default babel transpilation
+- Jest Configration -> npx jest --init
+- Install Jsdom Library
 Parcel also use babel soo there will be conflict between parcel babel configration and configure babel for testing 
