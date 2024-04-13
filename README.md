@@ -35,4 +35,19 @@
 - Configure Parcel Config file to disable default babel transpilation
 - Jest Configration -> npx jest --init
 - Install Jsdom Library
+- Install @babel/preset-react - to make JSX work in test cases
+- Install @babel/preset-react inside my babel config
+ 
+    module.exports = {
+    presets: [
+        ["@babel/preset-env", { targets: { node: "current" } }],
+        ["@babel/preset-react", { runtime: "automatic" }],
+    ],
+    };
+    @babel/preset-react -> to convert jsx to normal html code
+
+- Install npm i -D @testing-library/jest-dom  :: toBeInTheDocument comes from here
+
+
+
 Parcel also use babel soo there will be conflict between parcel babel configration and configure babel for testing 
