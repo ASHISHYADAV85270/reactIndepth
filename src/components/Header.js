@@ -18,7 +18,7 @@ const Header = () => {
     <div
       className={
         `${isDarkTheme ? "bg-black shadow-gray-800  " : "shadow-slate-100"}` +
-        " header flex justify-between items-center h-24 shadow-lg "
+        " header flex justify-between items-center shadow-lg h-20 overflow-hidden "
       }
     >
       <div className="logo-container">
