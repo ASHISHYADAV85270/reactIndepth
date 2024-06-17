@@ -5,8 +5,6 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 import { UserContext } from "../utils/UserContext";
 import { DarkContext } from "../utils/DarkContext";
 import { useSelector } from "react-redux";
-import appStore from "../utils/appStore";
-
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
   const { userName } = useContext(UserContext);
