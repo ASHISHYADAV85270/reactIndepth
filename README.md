@@ -34,6 +34,7 @@
 - Configure Babel -> babel.config.js
 - Configure Parcel Config file -> to disable default babel transpilation
 - Jest Configration -> npx jest --init
+- npx means exicuting
 - Install Jsdom Library
 - Install @babel/preset-react - to make JSX work in test cases
 - Install @babel/preset-react inside my babel config
