@@ -48,7 +48,9 @@
     @babel/preset-react -> to convert jsx to normal html code
 
 - Install npm i -D @testing-library/jest-dom  :: toBeInTheDocument comes from here
-
+ it provides kind of enviroment which have features of browsers 
+ 
+ - install jest-environment-jsdom if u are using jest > 28 
 
 
 Parcel also use babel soo there will be conflict between parcel babel configration and configure babel for testing 
